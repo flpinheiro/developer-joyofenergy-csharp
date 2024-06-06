@@ -9,13 +9,13 @@ namespace JOIEnergy.Tests
     public class AccountServiceTest
     {
         private const Supplier PRICE_PLAN_ID = Supplier.PowerForEveryone;
-        private const String SMART_METER_ID = "smart-meter-id";
+        private const string SMART_METER_ID = "smart-meter-id";
 
         private AccountService accountService;
 
         public AccountServiceTest()
         {
-            Dictionary<String, Supplier> smartMeterToPricePlanAccounts = new Dictionary<string, Supplier>();
+            Dictionary<string, Supplier> smartMeterToPricePlanAccounts = new Dictionary<string, Supplier>();
             smartMeterToPricePlanAccounts.Add(SMART_METER_ID, PRICE_PLAN_ID);
 
             accountService = new AccountService(smartMeterToPricePlanAccounts);

@@ -23,7 +23,8 @@ namespace JOIEnergy.Tests
         }
 
         [Fact]
-        public void GivenMeterIdThatDoesNotExistShouldReturnNull() {
+        public void GivenMeterIdThatDoesNotExistShouldReturnNull() 
+        {
             Assert.Empty(meterReadingService.GetReadings("unknown-id"));
         }
 

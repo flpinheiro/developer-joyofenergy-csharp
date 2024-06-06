@@ -15,7 +15,7 @@ namespace JOIEnergy.Tests
         private MeterReadingService meterReadingService;
         private PricePlanComparatorController controller;
         private Dictionary<string, Supplier> smartMeterToPricePlanAccounts = new Dictionary<string, Supplier>();
-        private static String SMART_METER_ID = "smart-meter-id";
+        private static string SMART_METER_ID = "smart-meter-id";
 
         public PricePlanComparisonTest()
         {

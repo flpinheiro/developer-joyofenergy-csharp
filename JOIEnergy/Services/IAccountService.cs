@@ -1,9 +1,8 @@
 ﻿using JOIEnergy.Enums;
 
-namespace JOIEnergy.Services
+namespace JOIEnergy.Services;
+
+public interface IAccountService
 {
-    public interface IAccountService
-    {
-        Supplier GetPricePlanIdForSmartMeterId(string smartMeterId);
-    }
+    Supplier GetPricePlanIdForSmartMeterId(string smartMeterId);
 }

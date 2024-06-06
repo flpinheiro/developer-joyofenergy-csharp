@@ -30,12 +30,14 @@ namespace JOIEnergy.Tests
         }
 
         [Fact]
-        public void TestGetEnergySupplier() {
+        public void TestGetEnergySupplier() 
+        {
             Assert.Equal(Supplier.TheGreenEco, _pricePlan.EnergySupplier);
         }
 
         [Fact]
-        public void TestGetBasePrice() {
+        public void TestGetBasePrice() 
+        {
             Assert.Equal(20m, _pricePlan.GetPrice(new DateTime(2018, 1, 2)));
         }
 
