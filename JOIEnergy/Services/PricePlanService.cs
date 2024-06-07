@@ -18,7 +18,7 @@ public class PricePlanService : IPricePlanService
         _meterReadingService = meterReadingService;
     }
 
-    private static decimal CalculateAverageReading(List<ElectricityReading> electricityReadings)
+    public static decimal CalculateAverageReading(List<ElectricityReading> electricityReadings)
     {
         var newSummedReadings = electricityReadings.Select(readings => readings.Reading).Aggregate(0m,(reading, accumulator) => reading + accumulator);
 
@@ -35,7 +35,7 @@ public class PricePlanService : IPricePlanService
         
         return (decimal)(last - first).TotalHours;
     }
-    private static decimal CalculateCost(List<ElectricityReading> electricityReadings, PricePlan pricePlan)
+    public static decimal CalculateCost(List<ElectricityReading> electricityReadings, PricePlan pricePlan)
     {
         var average = CalculateAverageReading(electricityReadings);
         var timeElapsed = CalculateTimeElapsed(electricityReadings);
@@ -43,7 +43,7 @@ public class PricePlanService : IPricePlanService
         return averagedCost * pricePlan.UnitRate;
     }
 
-    public Dictionary<string, decimal> GetConsumptionCostOfElectricityReadingsForEachPricePlan(String smartMeterId)
+    public Dictionary<string, decimal> GetConsumptionCostOfElectricityReadingsForEachPricePlan(string smartMeterId)
     {
         List<ElectricityReading> electricityReadings = _meterReadingService.GetReadings(smartMeterId);
 
