@@ -20,13 +20,13 @@ public class PricePlanService : IPricePlanService
 
     public static decimal CalculateAverageReading(List<ElectricityReading> electricityReadings)
     {
-        var newSummedReadings = electricityReadings.Select(readings => readings.Reading).Aggregate(0m,(reading, accumulator) => reading + accumulator);
+        var newSummedReadings = CalculateTotalReading(electricityReadings);
 
         return newSummedReadings / electricityReadings.Count();
     }
-    // =>
-    // electricityReadings.Select(readings => readings.Reading).Aggregate((reading, accumulator) => reading + accumulator) / electricityReadings.Count();
-    // electricityReadings.Select(readings => readings.Reading).Sum() / electricityReadings.Count();
+
+    public static decimal CalculateTotalReading(List<ElectricityReading> electricityReadings)
+        => electricityReadings.Select(readings => readings.Reading).Sum();
 
     private static decimal CalculateTimeElapsed(List<ElectricityReading> electricityReadings)
     {

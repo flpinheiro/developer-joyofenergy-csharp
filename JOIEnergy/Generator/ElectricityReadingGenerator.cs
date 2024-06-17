@@ -17,7 +17,7 @@ public static class ElectricityReadingGenerator
             var electricityReading = new ElectricityReading
             {
                 Reading = reading,
-                Time = DateTime.Now.AddSeconds(-i * 10)
+                Time = DateTime.Now.AddSeconds(-i * 10).AddMinutes(-i * 10).AddHours(-i * 10),
             };
             readings.Add(electricityReading);
         }

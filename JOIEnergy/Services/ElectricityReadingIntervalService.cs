@@ -14,16 +14,16 @@ public class ElectricityReadingIntervalService(IMeterReadingService meterReading
         var readingInterval = ElectricityReadingInterval.getPreviousWeekInterval();
 
         var reading = meterReadingService.GetReadings(smartReadingId)
-            //.Where(x => x.Time >= readingInterval.Start && x.Time <= readingInterval.End)
+            .Where(x => x.Time >= readingInterval.Start && x.Time <= readingInterval.End)
             .ToList();
 
         if (reading == null || !reading.Any()) return 0m;
 
-        var averageReadings = PricePlanService.CalculateAverageReading(reading);
+        var totalReadings = PricePlanService.CalculateTotalReading(reading);
 
         var plan = plans.FirstOrDefault(x => x.EnergySupplier.Equals(supplier));
 
-        var cost = averageReadings * plan.UnitRate;
+        var cost = totalReadings * plan.UnitRate;
 
         return cost;
     }

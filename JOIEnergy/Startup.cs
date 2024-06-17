@@ -109,7 +109,7 @@ namespace JOIEnergy
 
             foreach (var smartMeterId in smartMeterIds)
             {
-                readings.Add(smartMeterId, ElectricityReadingGenerator.Generate(20));
+                readings.Add(smartMeterId, ElectricityReadingGenerator.Generate(40));
             }
 
             return readings;
